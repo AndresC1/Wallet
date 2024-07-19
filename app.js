@@ -1,10 +1,19 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+
 import walletController from "./controllers/walletController.js";
 
 dotenv.config();
 
 const app = express();
+
+
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+
+app.use(cors());
 
 app.use(express.json());
 
