@@ -9,17 +9,12 @@ dotenv.config();
 
 const app = express();
 
-
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 app.use(cors());
 
 app.use(express.json());
-
-app.get('/', (req, res) => {
-    res.send('Hello World');
-})
 
 app.post('/api/txs', (req, res, next) => {
     let request = {
